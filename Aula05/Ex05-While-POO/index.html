@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Contatos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Adicionar Contato</h1>
+    <form id="formContato">
+      <label for="nome">Nome:</label><br />
+      <input type="text" id="nome" name="nome" /><br />
+      <label for="telefone">Telefone:</label><br />
+      <input type="text" id="telefone" name="telefone" /><br />
+      <label for="idade">Idade:</label><br />
+      <input type="text" id="idade" name="idade" /><br />
+      <label for="profissao">Profissão:</label><br />
+      <input type="text" id="profissao" name="profissao" /><br />
+      <input type="submit" value="Adicionar Contato" />
+    </form>
+    <h1>Lista de Contatos</h1>
+    <div id="listaContatos"></div>
+
+    <script src="app.js"></script>
+    <script>
+      document
+        .getElementById("formContato")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          adicionarContato(
+            document.getElementById("nome").value,
+            document.getElementById("telefone").value,
+            document.getElementById("idade").value,
+            document.getElementById("profissao").value
+          );
+          document.getElementById("listaContatos").innerText = "";
+          exibirContatos();
+        });
+    </script>
+  </body>
+</html>
